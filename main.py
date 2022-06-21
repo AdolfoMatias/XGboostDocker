@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template,request
 import pickle
 
 app = Flask(__name__)
@@ -7,9 +7,14 @@ app = Flask(__name__)
 def start_page():
     return render_template("index.html")
 
+@app.route("/start_pred", methods=["POST"])
 def start_pred():
-    #falta criar modelo com o pickle: XGBoost
-    pass
+    salario = request.form.get("salario")
+    idade = request.form.get("idade")
+    divida = request.form.get("divida")
+    modelo =pickle.load(open("model.pkl", "rb"))
+    predicao = modelo.predict([[salario, idade,divida]])
+    return str(predicao)
 
 
 if __name__== "__main__":
