@@ -1,15 +1,25 @@
+    <!--O contéudo extendido será montado aqui -->
 {% extends "base.html" %}
 {% block conteudo %}  
-    <form action="/start_pred" method="post"}>
-        <label for="salario" id="salario" name="salario">Salário</label><br>
-        <input type="number" min="0"><br>
+    <div class="headpage">
+        <h1> OFERTA DE CRÉDITO</h1>
+        
+    </div>
+    <!--Criando formulário com o post do método de predição -->
+    <div class="formulario">
+        <fieldset>   
+                <form action="/predicao" method="post"}>
+                    <label for="salario" id="salario" name="salario">Salário</label><br>
+                    <input type="number" min="0" max="99999999999" placeholder="Exemplo: 10000"><br>
 
-        <label for="divida" id="divida" name="divida">Dívida</label><br>
-        <input type="number" min="0"><br>
+                    <label for="divida" id="divida" name="divida">Dívida</label><br>
+                    <input type="number" min="0" max="99999999999" placeholder="Exemplo:10000"><br>
 
-        <label for="idade" id="idade" name="idade">Idade</label><br>
-        <input type="number" min="0" max="130"><br>
-        <button type="submit">Enviar</button>
-    </form>
+                    <label for="idade" id="idade" name="idade">Idade</label><br>
+                    <input type="number" min="0" max="130"><br>
+                    <button type="submit">Enviar</button>
+                </form>
+            </fieldset>
+    </div>
 
 {% endblock %}
